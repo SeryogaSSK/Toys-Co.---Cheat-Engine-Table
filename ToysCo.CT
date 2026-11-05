@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable UsesMono="1" CheatEngineTableVersion="52">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"SERYOGASK | [Toys Co.]  -  [1.0.0]"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00D7FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"INFORMATION"</Description>
+          <Options moHideChildren="1"/>
+          <Color>00D7FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"Game Title: Toy Co."</Description>
+              <Color>00D7FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"Game Version: 1.0.0"</Description>
+              <Color>00D7FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>5</ID>
+              <Description>"Table Version: 1.0.0"</Description>
+              <Color>00D7FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"Author: SeryogaSK"</Description>
+              <Color>00D7FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337163400</ID>
+          <Description>"&lt;=== Attach to process  and activate mono"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+  if(getCEVersion() &lt; 7.4) then
+    ShowMessage('Warning! CE version should be 7.4 or above')
+  end
+
+OpenProcess("ToysCo.exe")
+  if(process == nil) then
+    ShowMessage('The process is NOT found!')
+  end
+
+LaunchMonoDataCollector()
+{$asm}
+
+
+[DISABLE]
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10</ID>
+              <Description>"PLAYER"</Description>
+              <Options moHideChildren="1"/>
+              <Color>00D060</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>96</ID>
+                  <Description>"Claw Mashine _coins"</Description>
+                  <Color>00D060</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[mashine_base]+28</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>95</ID>
+                      <Description>"maxCoins"</Description>
+                      <Color>00D060</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[mashine_base]+24</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>94</ID>
+                      <Description>"startingCoins"</Description>
+                      <Color>00D060</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[mashine_base]+20</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>116</ID>
+                  <Description>"_capacityMultiplier"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>00D060</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>[pitems_base]+100</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>111</ID>
+                  <Description>"Power Up _remaining"</Description>
+                  <Color>00D060</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>[pwrmgr_base]+40</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>129</ID>
+                      <Description>"[P-UP] Hologram _active"</Description>
+                      <Color>00D060</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>1836D20E780+20</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>38</Offset>
+                        <Offset>10</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>130</ID>
+                          <Description>"[P-UP] Hologram _compassActive"</Description>
+                          <Color>00D060</Color>
+                          <VariableType>Byte</VariableType>
+                          <Address>1836D20E780+20</Address>
+                          <Offsets>
+                            <Offset>49</Offset>
+                            <Offset>38</Offset>
+                            <Offset>10</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20</ID>
+              <Description>"SCRIPTS"</Description>
+              <Options moHideChildren="1"/>
+              <Color>00A5FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>70</ID>
+                  <Description>"Claw Mashine"</Description>
+                  <Color>00A5FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+  ==============================================
+         Header Changer by SeryogaSK
+  ----------------------------------------------
+	Process				: ToysCo.exe
+	Game Title 			: Toys Co
+	Game Version		: 1.0 // maybe wrong since can' find right Game Version
+	Author				: SeryogaSK
+  ----------------------------------------------
+   Warning: Online use may trigger anti-cheat!
+  ==============================================
+}
+[ENABLE]
+
+aobscanmodule(mashine_coinser,GameAssembly.dll,48 8B 46 20 48 85 C0 0F 84 ** ** ** ** 8B 48 28 EB **) // should be unique
+alloc(newmem,$1000,mashine_coinser)
+alloc(mashine_base,8)
+alloc(mashinectr_base,8)
+label(code)
+label(return)
+
+newmem:
+mov [mashine_base],rax
+mov [mashinectr_base],rbp
+code:
+  mov ecx,[rax+28]
+  jmp GameAssembly.dll+4994B2
+  jmp return
+
+mashine_coinser+0D:
+  jmp newmem
+return:
+registersymbol(mashine_coinser mashine_base mashinectr_base)
+
+[DISABLE]
+
+mashine_coinser+0D:
+  db 8B 48 28 EB 02
+
+unregistersymbol(*)
+dealloc(*)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+4994AB
+
+GameAssembly.dll+499488: E8 53 7C F3 FF        - call GameAssembly.il2cpp_runtime_class_init
+GameAssembly.dll+49948D: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+499490: 33 D2                 - xor edx,edx
+GameAssembly.dll+499492: 49 8B CE              - mov rcx,r14
+GameAssembly.dll+499495: E8 16 74 0C 02        - call UnityEngine.Object.op_Inequality
+GameAssembly.dll+49949A: 84 C0                 - test al,al
+GameAssembly.dll+49949C: 74 12                 - je GameAssembly.dll+4994B0
+GameAssembly.dll+49949E: 48 8B 46 20           - mov rax,[rsi+20]
+GameAssembly.dll+4994A2: 48 85 C0              - test rax,rax
+GameAssembly.dll+4994A5: 0F 84 36 01 00 00     - je GameAssembly.dll+4995E1
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+4994AB: 8B 48 28              - mov ecx,[rax+28]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+4994AE: EB 02                 - jmp GameAssembly.dll+4994B2
+GameAssembly.dll+4994B0: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+4994B2: 4C 8B 35 BF BC 07 03  - mov r14,[GameAssembly.dll+3515178]
+GameAssembly.dll+4994B9: 89 4C 24 40           - mov [rsp+40],ecx
+GameAssembly.dll+4994BD: 48 8D 54 24 40        - lea rdx,[rsp+40]
+GameAssembly.dll+4994C2: 48 8B 0D 2F C8 28 03  - mov rcx,[GameAssembly.dll+3725CF8]
+GameAssembly.dll+4994C9: E8 12 6C F3 FF        - call GameAssembly.il2cpp_value_box
+GameAssembly.dll+4994CE: 48 8B F0              - mov rsi,rax
+GameAssembly.dll+4994D1: 48 85 DB              - test rbx,rbx
+GameAssembly.dll+4994D4: 0F 84 33 01 00 00     - je GameAssembly.dll+49960D
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>114</ID>
+                  <Description>"Capacity"</Description>
+                  <Color>00A5FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+  ==============================================
+         Header Changer by SeryogaSK
+  ----------------------------------------------
+	Process				: ToysCo.exe
+	Game Title 			: ToysCo
+	Game Version		: 1.0 // maybe wrong since can' find right Game Version
+	Author				: SeryogaSK
+  ----------------------------------------------
+   Warning: Online use may trigger anti-cheat!
+  ==============================================
+}
+[ENABLE]
+
+aobscanmodule(ply_caritm,GameAssembly.dll,F3 0F 59 87 00 01 00 00 E8 ** ** ** ** 3B C3 0F 4C C3) // should be unique
+alloc(newmem,$1000,ply_caritm)
+alloc(pitems_base,8)
+registersymbol(pitems_base)
+
+label(code)
+label(return)
+
+newmem:
+mov [pitems_base],rdi
+
+code:
+  mulss xmm0,[rdi+00000100]
+  jmp return
+
+ply_caritm:
+  jmp newmem
+  nop 3
+return:
+registersymbol(ply_caritm,pitems_base)
+
+[DISABLE]
+
+ply_caritm:
+  db F3 0F 59 87 00 01 00 00
+
+unregistersymbol(*)
+dealloc(*)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+5168A7
+
+GameAssembly.dll+516887: 8B 5B 4C                 - mov ebx,[rbx+4C]
+GameAssembly.dll+51688A: 33 D2                    - xor edx,edx
+GameAssembly.dll+51688C: E8 5F 19 FB FF           - call GameAssembly.dll+4C81F0
+GameAssembly.dll+516891: 8D 0C 18                 - lea ecx,[rax+rbx]
+GameAssembly.dll+516894: BB 01 00 00 00           - mov ebx,00000001
+GameAssembly.dll+516899: 3B CB                    - cmp ecx,ebx
+GameAssembly.dll+51689B: 0F 4C CB                 - cmovl ecx,ebx
+GameAssembly.dll+51689E: 66 0F 6E C1              - movd xmm0,ecx
+GameAssembly.dll+5168A2: 33 D2                    - xor edx,edx
+GameAssembly.dll+5168A4: 0F 5B C0                 - cvtdq2ps xmm0,xmm0
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+5168A7: F3 0F 59 87 00 01 00 00  - mulss xmm0,[rdi+00000100]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+5168AF: E8 3C 19 FB FF           - call GameAssembly.dll+4C81F0
+GameAssembly.dll+5168B4: 3B C3                    - cmp eax,ebx
+GameAssembly.dll+5168B6: 0F 4C C3                 - cmovl eax,ebx
+GameAssembly.dll+5168B9: 48 8B 5C 24 30           - mov rbx,[rsp+30]
+GameAssembly.dll+5168BE: 48 83 C4 20              - add rsp,20
+GameAssembly.dll+5168C2: 5F                       - pop rdi
+GameAssembly.dll+5168C3: C3                       - ret
+GameAssembly.dll+5168C4: 48 8B 5C 24 30           - mov rbx,[rsp+30]
+GameAssembly.dll+5168C9: 33 C0                    - xor eax,eax
+GameAssembly.dll+5168CB: 48 83 C4 20              - add rsp,20
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>100</ID>
+                  <Description>"Power Up Manger"</Description>
+                  <Color>00A5FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+  ==============================================
+         Header Changer by SeryogaSK
+  ----------------------------------------------
+	Process				: ToysCo.exe
+	Game Title 			: ToysCo
+	Game Version		: 1.0 // maybe wrong since can' find right Game Version
+	Author				: SeryogaSK
+  ----------------------------------------------
+   Warning: Online use may trigger anti-cheat!
+  ==============================================
+}
+[ENABLE]
+
+aobscanmodule(ply_pwrmagr,GameAssembly.dll,F3 0F 10 73 40 33 C9 E8 ** ** ** ** F3 0F 5C F0 0F 57 C0) // should be unique
+alloc(newmem,$1000,ply_pwrmagr)
+alloc(pwrmgr_base,8)
+
+
+label(code)
+label(return)
+
+newmem:
+mov [pwrmgr_base],rbx
+
+code:
+  movss xmm6,[rbx+40]
+  xor ecx,ecx
+  call UnityEngine.Time.get_deltaTime
+  subss xmm6,xmm0
+  jmp return
+
+ply_pwrmagr:
+  jmp far newmem
+  nop 2
+return:
+registersymbol(ply_pwrmagr pwrmgr_base)
+
+[DISABLE]
+
+ply_pwrmagr:
+  db F3 0F 10 73 40 33 C9 E8 A6 EC 06 02 F3 0F 5C F0
+
+unregistersymbol(*)
+dealloc(*)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+4FA67E
+
+GameAssembly.dll+4FA65C: 75 05           - jne GameAssembly.dll+4FA663
+GameAssembly.dll+4FA65E: E8 7D 6A ED FF  - call GameAssembly.il2cpp_runtime_class_init
+GameAssembly.dll+4FA663: 45 33 C0        - xor r8d,r8d
+GameAssembly.dll+4FA666: 33 D2           - xor edx,edx
+GameAssembly.dll+4FA668: 48 8B CF        - mov rcx,rdi
+GameAssembly.dll+4FA66B: E8 B0 60 06 02  - call UnityEngine.Object.op_Equality
+GameAssembly.dll+4FA670: 48 8B 7C 24 40  - mov rdi,[rsp+40]
+GameAssembly.dll+4FA675: 84 C0           - test al,al
+GameAssembly.dll+4FA677: 75 36           - jne GameAssembly.dll+4FA6AF
+GameAssembly.dll+4FA679: 0F 29 74 24 20  - movaps [rsp+20],xmm6
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+4FA67E: F3 0F 10 73 40  - movss xmm6,[rbx+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+4FA683: 33 C9           - xor ecx,ecx
+GameAssembly.dll+4FA685: E8 A6 EC 06 02  - call UnityEngine.Time.get_deltaTime
+GameAssembly.dll+4FA68A: F3 0F 5C F0     - subss xmm6,xmm0
+GameAssembly.dll+4FA68E: 0F 57 C0        - xorps xmm0,xmm0
+GameAssembly.dll+4FA691: F3 0F 11 73 40  - movss [rbx+40],xmm6
+GameAssembly.dll+4FA696: 0F 2F C6        - comiss xmm0,xmm6
+GameAssembly.dll+4FA699: 0F 28 74 24 20  - movaps xmm6,[rsp+20]
+GameAssembly.dll+4FA69E: 72 0F           - jb GameAssembly.dll+4FA6AF
+GameAssembly.dll+4FA6A0: 33 D2           - xor edx,edx
+GameAssembly.dll+4FA6A2: 48 8B CB        - mov rcx,rbx
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>122</ID>
+                  <Description>"SkillPoints no dec"</Description>
+                  <Color>00A5FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+  ==============================================
+         Header Changer by SeryogaSK
+  ----------------------------------------------
+	Process				: ToysCo.exe
+	Game Title 			: ToysCo
+	Game Version		: 1.0 // maybe wrong since can' find right Game Version
+	Author				: SeryogaSK
+  ----------------------------------------------
+   Warning: Online use may trigger anti-cheat!
+  ==============================================
+}
+[ENABLE]
+
+aobscanmodule(ply_skillpoints,GameAssembly.dll,2B 51 28 B8 00 00 00 00 0F 49 C2) // should be unique
+alloc(newmem,$1000,ply_skillpoints)
+
+label(code)
+label(return)
+
+newmem:
+mov [rcx+28],#0
+code:
+  sub edx,[rcx+28]
+  mov eax,00000000
+  jmp return
+
+ply_skillpoints:
+  jmp newmem
+  nop 3
+return:
+registersymbol(ply_skillpoints)
+
+[DISABLE]
+
+ply_skillpoints:
+  db 2B 51 28 B8 00 00 00 00
+
+unregistersymbol(ply_skillpoints)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+5529D3
+
+GameAssembly.dll+5529C7: CC              - int 3 
+GameAssembly.dll+5529C8: CC              - int 3 
+GameAssembly.dll+5529C9: CC              - int 3 
+GameAssembly.dll+5529CA: CC              - int 3 
+GameAssembly.dll+5529CB: CC              - int 3 
+GameAssembly.dll+5529CC: CC              - int 3 
+GameAssembly.dll+5529CD: CC              - int 3 
+GameAssembly.dll+5529CE: CC              - int 3 
+GameAssembly.dll+5529CF: CC              - int 3 
+ToyChaos.Core.GameProgress.get_AvailableSkillPoints: 8B 51 24        - mov edx,[rcx+24]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+5529D3: 2B 51 28        - sub edx,[rcx+28]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+5529D6: B8 00 00 00 00  - mov eax,00000000
+GameAssembly.dll+5529DB: 0F 49 C2        - cmovns eax,edx
+GameAssembly.dll+5529DE: C3              - ret 
+GameAssembly.dll+5529DF: CC              - int 3 
+UnityEngine.Rendering.DebugFrameTiming.get_bottleneckHistorySize: 8B 41 20        - mov eax,[rcx+20]
+GameAssembly.dll+5529E3: C3              - ret 
+GameAssembly.dll+5529E4: CC              - int 3 
+GameAssembly.dll+5529E5: CC              - int 3 
+GameAssembly.dll+5529E6: CC              - int 3 
+GameAssembly.dll+5529E7: CC              - int 3 
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>127</ID>
+                  <Description>"No Skill Cooldown"</Description>
+                  <Color>00A5FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+  ==============================================
+         Header Changer by SeryogaSK
+  ----------------------------------------------
+	Process				: ToysCo.exe
+	Game Title 			: ToysCo
+	Game Version		: 1.0 // maybe wrong since can' find right Game Version
+	Author				: SeryogaSK
+  ----------------------------------------------
+   Warning: Online use may trigger anti-cheat!
+  ==============================================
+}
+[ENABLE]
+
+aobscanmodule(skill_durabilytista,GameAssembly.dll,48 98 F3 0F 10 44 81 20 48 83 C4 28 C3) // should be unique
+alloc(newmem,$1000,skill_durabilytista)
+
+label(code)
+label(return)
+
+newmem:
+cmp [rcx+A0],1
+//cmp [rcx+A4],1
+//cmp [rcx+A8],1
+//cmp [rcx+AC],1
+jne code
+mov [rcx+rax*4+20],(float)30
+  movss xmm0,[rcx+rax*4+20]
+  jmp return
+code:
+mov [rcx+rax*4+20],(float)0
+  movss xmm0,[rcx+rax*4+20]
+  jmp return
+
+skill_durabilytista+02:
+  jmp newmem
+  nop
+return:
+registersymbol(skill_durabilytista)
+
+[DISABLE]
+
+skill_durabilytista+02:
+  db F3 0F 10 44 81 20
+
+unregistersymbol(skill_durabilytista)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+839560
+
+GameAssembly.dll+839548: FF C8              - dec eax
+GameAssembly.dll+83954A: 3B D0              - cmp edx,eax
+GameAssembly.dll+83954C: 7F 0B              - jg GameAssembly.dll+839559
+GameAssembly.dll+83954E: 45 33 C0           - xor r8d,r8d
+GameAssembly.dll+839551: 8B C2              - mov eax,edx
+GameAssembly.dll+839553: 85 D2              - test edx,edx
+GameAssembly.dll+839555: 41 0F 48 C0        - cmovs eax,r8d
+GameAssembly.dll+839559: 3B 41 18           - cmp eax,[rcx+18]
+GameAssembly.dll+83955C: 73 15              - jae GameAssembly.dll+839573
+GameAssembly.dll+83955E: 48 98              - cdqe 
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+839560: F3 0F 10 44 81 20  - movss xmm0,[rcx+rax*4+20]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+839566: 48 83 C4 28        - add rsp,28
+GameAssembly.dll+83956A: C3                 - ret 
+GameAssembly.dll+83956B: 0F 28 C2           - movaps xmm0,xmm2
+GameAssembly.dll+83956E: 48 83 C4 28        - add rsp,28
+GameAssembly.dll+839572: C3                 - ret 
+GameAssembly.dll+839573: E8 C8 7A B9 FF     - call GameAssembly.il2cpp_method_get_class+A0
+GameAssembly.dll+839578: CC                 - int 3 
+GameAssembly.dll+839579: CC                 - int 3 
+GameAssembly.dll+83957A: CC                 - int 3 
+GameAssembly.dll+83957B: CC                 - int 3 
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30</ID>
+              <Description>"GAMEPLAY"</Description>
+              <Options moHideChildren="1"/>
+              <Color>00D7FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>73</ID>
+                  <Description>"Claw Mashine"</Description>
+                  <Options moHideChildren="1"/>
+                  <Color>00D7FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>74</ID>
+                      <Description>"descendDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+88</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>75</ID>
+                      <Description>"closeDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+8C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>76</ID>
+                      <Description>"grabHoldDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+90</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>77</ID>
+                      <Description>"ascendDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+94</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>78</ID>
+                      <Description>"toExitDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+98</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>79</ID>
+                      <Description>"openDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+9C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>80</ID>
+                      <Description>"prizeFallDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+A0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>81</ID>
+                      <Description>"prizeReleaseAt"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+A4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>82</ID>
+                      <Description>"returnHomeDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+A8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>83</ID>
+                      <Description>"descendDepth"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+AC</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>84</ID>
+                      <Description>"fingerOpenAngle"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+B0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>85</ID>
+                      <Description>"fingerClosedAngle"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+B4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>86</ID>
+                      <Description>"reEntryLockSeconds"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[mashinectr_base]+C0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>87</ID>
+                      <Description>"coinCost"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[mashinectr_base]+C4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>88</ID>
+                      <Description>"chuteBlocksGrab"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>[mashinectr_base]+C8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>89</ID>
+                      <Description>"_state"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[mashinectr_base]+E0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>90</ID>
+                      <Description>"_stateEnteredFrame"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[mashinectr_base]+E4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>91</ID>
+                      <Description>"_exitQueued"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>[mashinectr_base]+E8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>92</ID>
+                      <Description>"_reEntryLocked"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>[mashinectr_base]+E9</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>93</ID>
+                      <Description>"_winScreenHold"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>[mashinectr_base]+EA</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>110</ID>
+                  <Description>"Power Up Manager"</Description>
+                  <Options moHideChildren="1"/>
+                  <Color>00D7FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>102</ID>
+                      <Description>"throwPlaceEase"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>64</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>103</ID>
+                      <Description>"coinMultiplier"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>60</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>104</ID>
+                      <Description>"capacityMultiplier"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>5C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>105</ID>
+                      <Description>"dashCooldown"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>58</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>106</ID>
+                      <Description>"dashDuration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>54</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>107</ID>
+                      <Description>"dashDistance"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>50</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>108</ID>
+                      <Description>"boostedSpeed"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>4C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>109</ID>
+                      <Description>"duration"</Description>
+                      <Color>00D7FF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>[pwrmgr_base]+38</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"DEBUG / DEVELOPER"</Description>
+          <Options moHideChildren="1"/>
+          <Color>C080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>71</ID>
+              <Description>"Coin Base"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>C080FF</Color>
+              <VariableType>8 Bytes</VariableType>
+              <Address>mashine_base</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>72</ID>
+              <Description>"Claw Mashine Base"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>C080FF</Color>
+              <VariableType>8 Bytes</VariableType>
+              <Address>mashinectr_base</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>101</ID>
+              <Description>"Power Up Manager Base"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>C080FF</Color>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pwrmgr_base</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>115</ID>
+              <Description>"Items Base"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>C080FF</Color>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pitems_base</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"MISCELLANEOUS"</Description>
+          <Options moHideChildren="1"/>
+          <Color>A0A0A0</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"CHANGELOG &amp; CREDITS"</Description>
+          <Options moHideChildren="1"/>
+          <Color>A0A0A0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>61</ID>
+              <Description>"v1.0.0 - Initial table"</Description>
+              <Color>A0A0A0</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>97</ID>
+      <Description>"--------------------------------------------- ----------------------------------------------"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>SeryogaSK reusable Cheat Engine table template. Structure and metadata placeholders only; no game addresses or active cheats.
+</Comments>
+  <LuaScript>-- Cheat Table Decorator
+function decorateSSKTable()
+  local mainForm = getMainForm()
+
+  -- Main Form Styling
+  mainForm.Caption = 'Toys Co. (Steam) - Enhanced Table [by SeryogaSK]'
+  getAutoAttachList().add("ToysCo.exe")
+end
+
+-- Execute when table loads
+decorateSSKTable()
+
+</LuaScript>
+</CheatTable>
