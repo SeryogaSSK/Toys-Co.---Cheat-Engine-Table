@@ -1,7 +1,7 @@
 # Toys Co. – Cheat Engine Table
 
 **Game Title:** Toys Co.  
-**Game Version:** 1.0.0
+**Game Version:** 1.0.0  
 **Table Version:** 1.0.0  
 **Author:** SeryogaSK
 
